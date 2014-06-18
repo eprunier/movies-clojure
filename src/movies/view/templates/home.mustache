@@ -1,0 +1,23 @@
+<div>
+  <h1>Home</h1>
+  <table class="table">
+    <thead>
+      <tr>
+	<th>Name</th>
+	<th>Year</th>
+	<th>Categories</th>
+      </tr>
+    </thead>
+    {{#movies}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{year}}</td>
+      <td>
+	{{#categories}}
+	<span style="margin-right: 10px;">{{name}}</span>
+	{{/categories}}
+      </td>
+    </tr>
+    {{/movies}}
+  </table>
+</div>
