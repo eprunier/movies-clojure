@@ -5,17 +5,17 @@
       <tr>
 	<th>Name</th>
 	<th>Year</th>
-	<th>Categories</th>
+	<th>Genres</th>
       </tr>
     </thead>
     {{#movies}}
     <tr>
-      <td>{{name}}</td>
+      <td><a href="{{context-root}}/movie/{{_id}}">{{name}}</a></td>
       <td>{{year}}</td>
       <td>
-	{{#categories}}
-	<span style="margin-right: 10px;">{{name}}</span>
-	{{/categories}}
+	{{#genres}}
+	<span class="genre">{{name}}</span>
+	{{/genres}}
       </td>
     </tr>
     {{/movies}}

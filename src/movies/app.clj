@@ -26,7 +26,7 @@
          '[movies.view.admin :refer [admin-routes]])
 
 ;;; Load website routes
-;; Add your routes here
+(require '[movies.view.movie :refer [movie-routes]])
 
 
 ;; Ring handler definition
@@ -37,6 +37,7 @@
               profile-routes
               settings-routes
               admin-routes
+              movie-routes
               (route/resources "/")
               (route/not-found "<h1>Page not found.</h1>"))
       (session-manager/wrap-session)

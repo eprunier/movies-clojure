@@ -8,7 +8,7 @@
 (defn- render-home [request]
   (stencil/render-file
    "movies/view/templates/home"
-   {:movies (db/get-movies {} :page 1 :nb-results 20)}))
+   {:movies (db/get-movies {} :page 1 :results 20)}))
 
 (defn- render-index [request]
   (stencil/render-file

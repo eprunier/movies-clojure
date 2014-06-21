@@ -1,7 +1,8 @@
 (ns movies.service.db
   (:require [monger.core :refer [connect get-db]]
             [monger.query :refer [with-collection paginate] :as query]
-            [monger.collection :as monger]))
+            [monger.collection :as monger])
+  (:import [org.bson.types ObjectId]))
 
 (defonce connection (connect))
 (defonce db (get-db connection "movies"))
@@ -29,10 +30,14 @@
 
 (defn get-movies
   "Find movies with or without criteria."
-  [criteria & {:keys [page nb-results] :as options}]
+  [criteria & {:keys [page results] :as options}]
   (with-collection db "movie"
     (query/find criteria)
-    (paginate :page page :per-page nb-results)))
+    (paginate :page page :per-page results)))
+
+(defn get-movie
+  [id]
+  (monger/find-map-by-id db "movie" (ObjectId. id)))
 
 (defn add-movie
   "Add movie."

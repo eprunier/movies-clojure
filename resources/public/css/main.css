@@ -28,6 +28,32 @@ body {
     padding: 7px 9px;
 }
 
+.genre:after {
+    content: ",";
+    margin-right: 5px;
+}
+
+.genre:last-of-type:after {
+    content: "";
+}
+
+.actor:after {
+    content: ",";
+    margin-right: 5px;
+}
+
+.actor:last-of-type:after {
+    content: "";
+}
+
+.info {
+    font-weight: bold;
+}
+
+.year {
+    font-size: 0.6em;
+}
+
 .footer {
     padding: 30px 0;
     color: #999;
